@@ -1,0 +1,248 @@
+<!-- 	Name: 	Ash Marchevsky
+	Course: 	235.01
+	HomeWork: 	#2
+	Git-Hub: 	https://github.com/yourName/yourHomeWork
+--> 	
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+	<link rel="stylesheet" href="styles.css">
+	<title> Yahtzee </title>
+</head>
+
+<header>
+	<h1 id="title">Yahtzee</h1>
+</header>
+
+<body>
+
+<script language="JavaScript">
+<!--
+	var v = new Array(0,0,0,0,0);
+	var r = 0;
+	var h = new Array(false, false, false, false, false);
+	var s = new Array(0,0,0,0,0,0,0,0,0);
+	var n = 0;
+	var l = false;
+	
+	function reset(){
+		n += 1;
+		l = false;
+		if(n<9){
+			for(var i=0; i<5; i++)
+			{
+				var a = document.getElementById("d"+i);
+				v[i] = 0;
+				h[i] = false;
+				r = 0;
+				a.src = "pix/dice0.gif";
+			}
+		}
+		else if (n==9){
+			var t = 0;
+			for (var j=0; j<9; j++){
+				t += s[j];
+			}
+			document.getElementById("10").innerHTML = t;
+			alert("Your final score is " + t);
+		}
+		else{
+			for (var j=0; j<10; j++){
+				document.getElementById(j+1).innerHTML = "";
+				s[j] = 0;
+				n=0;
+				reset();
+			}
+		}
+	}
+
+	function roll(){
+		if (l == false){
+			r++;
+		
+			if(r < 4)
+			{
+		
+				for (var i=0; i<5; i++)
+				{
+			
+					var a = document.getElementById("d"+i);
+					if(h[i] == false){
+						v[i] = Math.floor(6*Math.random()) + 1; //generating random num b/w 1-2
+						a.src = "pix/dice"+v[i]+".gif";
+					}
+					else{}
+				}
+			}
+		}
+		else{}
+	}
+
+	
+	function hold(x)
+	{
+	
+		if (r>0){
+			h[x] = !h[x];
+			var a = document.getElementById("d"+x);
+			if(h[x]){
+				a.src = "pix/diceX"+v[x]+".gif";
+			}
+			else{a.src = "pix/dice"+v[x]+".gif";}
+		}
+		else{}
+	}
+	
+	function lock(b){
+		if ((s[b-1]) || (l==true) || (r==0)){
+		}
+		else{
+			score(b);
+			l = true;
+		}
+	
+	}
+	
+	function score(b){
+		var c = 0;
+		if (b<7){
+			for (var i=0; i<5; i++){
+				if(v[i] == b){
+					c += b;
+				}
+			}
+		}
+		else if (b == 7){
+			for (var i=0; i<5; i++){
+				t = 0;
+				for (var j=1; j<5; j++){
+					if(v[i] == v[j]){
+					t += 1;
+					}
+				}
+				if (t >= 2){
+					for (var k=0; k<5; k++){
+						c += v[k];
+					}
+					break;
+				}
+			}
+		}
+		
+		else if (b == 8){
+			for (var i=0; i<5; i++){
+				t = 0;
+				for (var j=1; j<5; j++){
+					if(v[i] == v[j]){
+					t += 1;
+					}
+				}
+				if (t >= 3){
+					for (var k=0; k<5; k++){
+						c += v[k];
+					}
+					break;
+				}
+			}
+		}
+		
+		else if (b == 9){
+			for (var i=0; i<5; i++){
+				t = 0;
+				for (var j=1; j<5; j++){
+					if(v[i] == v[j]){
+					t += 1;
+					}
+				}
+				if (t == 5){
+					for (var k=0; k<5; k++){
+						c += v[k];
+					}
+					break;
+				}
+			}
+		}
+		
+		else{
+		}
+		
+		s[(b-1)] = c;
+		document.getElementById(b).innerHTML = c;
+	
+	}
+	
+	
+//-->
+</script>
+
+<div id="main">
+
+	<div class = "dice">
+		<img id="d0" onClick="hold(0)" src="pix/dice0.gif">
+		<img id="d1" onClick="hold(1)" src="pix/dice0.gif">
+		<img id="d2" onClick="hold(2)" src="pix/dice0.gif">
+		<img id="d3" onClick="hold(3)" src="pix/dice0.gif">
+		<img id="d4" onClick="hold(4)" src="pix/dice0.gif">
+	</div>
+	
+	<br>
+	<br>
+	
+	<table>
+	  <tr>
+		<th class="label">1's</th>
+		<th class="box" id="1" onClick="lock(1)"></th> 
+		<th class="space"></th>
+	  </tr>
+	  <tr class="2">
+		<th class="label">2's</th>
+		<th class="box" id="2" onClick="lock(2)"></th> 
+		<th class="space" rowspan="2"><button onClick="roll()" class="a"> <b>Roll</b> </button></th>
+	  </tr>
+	  <tr class="3">
+		<th class="label">3's</th>
+		<th class="box" id="3" onClick="lock(3)"></th> 
+	  </tr>
+	  <tr class="4">
+		<th class="label">4's</th>
+		<th class="box" id="4" onClick="lock(4)"></th> 
+		<th class="space"></th>
+	  </tr>
+	  <tr class="5">
+		<th class="label">5's</th>
+		<th class="box" id="5" onClick="lock(5)"></th> 
+		<th class="space"></th>
+	  </tr>
+	  <tr class="6">
+		<th class="label">6's</th>
+		<th class="box" id="6" onClick="lock(6)"></th> 
+		<th class="space"></th>
+	  </tr>
+	  <tr class="3k">
+		<th class="label">3 of a kind</th>
+		<th class="box" id="7" onClick="lock(7)"></th> 
+		<th class="space"></th>
+	  </tr>
+	  <tr class="4k">
+		<th class="label">4 of a kind</th>
+		<th class="box" id="8" onClick="lock(8)"></th> 
+		<th class="space" rowspan="2"><button onClick="reset()" class="b"> <b>New game</b></button></th>
+	  </tr>
+	  <tr class="Y">
+		<th class="label">Yahtzee</th>
+		<th class="box" id="9" onClick="lock(9)"></th> 
+	  </tr>
+	  <tr class="total">
+		<th class="label">Total</th>
+		<th class="box" id="10" ></th> 
+		<th class="space"></th>
+	</tr>
+	</table>
+</div>
+</body>
+
+<footer>
+</footer>
+
+</html>

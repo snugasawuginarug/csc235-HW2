@@ -1,0 +1,83 @@
+/* Name: Ash Marchevsky 
+ 	Course: 235.01
+ 	Homework: #2 */
+	
+header{
+	text-align:center;
+	font-size: 20pt;
+	height: 100px;
+	background-color: white;
+}
+h1{
+	margin: 0;
+}
+
+body{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	background-color: #efefef;
+	margin:0;
+	padding: 0;
+}
+
+#main{
+	padding-top: 3%;
+}
+
+div.dice{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 300px;
+}
+
+img{
+	border: 2px outset white;
+	border-radius: 20%;
+}
+
+table{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	width: 500px;
+	border-spacing: 3px;
+	text-align: right;
+}
+table, th, tr {
+  
+  padding: 0 0 0 0;
+}
+
+tr{
+	height: 30px;
+}
+
+.label{
+	width:80px;
+}
+
+.box{
+	width: 40px;
+	background-color:#aeafff;
+	border: 2px inset #aebcc0;
+}
+
+.a{
+	background-color: #5800cb;
+	color: #dcc4e9;
+	margin-right: 20px;
+	border: 2px outset white;
+	font-size: 12pt;
+	padding: 6px;
+	font-family: Times New Roman, Times, serif;
+}
+
+.b{
+	background-color: #aebcc0;
+	color: #2a3766;
+	padding: 6px;
+	border: 2px outset white;
+	font-size: 12pt;
+	font-family: Times New Roman, Times, serif;
+}
